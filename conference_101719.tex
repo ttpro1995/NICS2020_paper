@@ -66,17 +66,37 @@ or Math in Paper Title or Abstract.
 component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
-\section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+% \section{Introduction}
+\input{part/introduction}
+ 
 
-\section{Related work}
-
-
-
-C-CNN \cite{9053780} focus on light weight 
+% related work
+\input{part/related_work}
 
 \section{Method}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.4\textwidth]{Picture/proposed/tail13.png}}
+\caption{Our proposed network}
+\label{fig}
+\end{figure}
+
+\begin{table}[htbp]
+\caption{Table Type Styles}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+\cline{2-4} 
+\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+\hline
+copy& More table copy$^{\mathrm{a}}$& &  \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
 
 \section{}
 
