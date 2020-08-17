@@ -1,0 +1,24 @@
+\section{Method}
+
+\subsection{Dilated convolution neural network}
+Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. However, there is still room for improvement, while its light-weight characteristic is reserved. 
+
+Dilated CNN have been  Inspired from CSRNet \cite{li2018csrnet} and CAN \cite{liu2019context}, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We apply batch normalization \cite{ioffe2015batch} with trainable parameters on each layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, ReLU \cite{agarap2018deep}. 
+
+\begin{table}[htbp]
+\caption{Experiment result}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Table}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}} \\
+\hline
+\textbf{Head} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}} \\
+\hline
+C-CNN & 14.9 & 22.1  \\
+\hline
+Ours & 12.2 & 21.9  \\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
