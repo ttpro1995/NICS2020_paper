@@ -3,22 +3,64 @@
 \subsection{Dilated convolution neural network}
 Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. However, there is still room for improvement, while its light-weight characteristic is reserved. 
 
-Dilated CNN have been  Inspired from CSRNet \cite{li2018csrnet} and CAN \cite{liu2019context}, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We apply batch normalization \cite{ioffe2015batch} with trainable parameters on each layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, ReLU \cite{agarap2018deep}. 
+Dilated CNN have been proven to conserved spatial context information \cite{li2018csrnet}. Inspired by its successed in CSRNet \cite{li2018csrnet} and CAN \cite{liu2019context}, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We apply batch normalization \cite{ioffe2015batch} with trainable parameters on each layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, ReLU \cite{agarap2018deep}. 
+
+% \begin{table}[htbp]
+% \caption{Experiment result}
+
+% \begin{center}
+% \begin{tabular}{|c|c|c|}
+% \hline
+% \textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}} \\
+% \hline
+% \textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}} \\
+% \hline
+% C-CNN & 14.9 & 22.1  \\
+% \hline
+% Ours & 12.2 & 21.9  \\
+% \hline
+% \end{tabular}
+% \end{center}
+% \end{table}
+
+Table \ref{tab:experiment-result} show experiment result and trainable parameter of our proposed method comparing to C-CNN. The increase in parameter size due to learnable affine parameters in batch normalization only. 
 
 \begin{table}[htbp]
-\caption{Experiment result}
+\caption{\label{tab:experiment-result}  Experiment result}
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Table}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}} \\
+\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}&\textbf{Parameter} \\
+\cline{1-3}
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}}&\textbf{Size} \\
 \hline
-\textbf{Head} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}} \\
+C-CNN & 14.9 & 22.1 & 72509   \\
 \hline
-C-CNN & 14.9 & 22.1  \\
+Ours & 12.2 & 21.9 & 73009 \\
 \hline
-Ours & 12.2 & 21.9  \\
-\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$ Parameter size in our implementation.}
 \end{tabular}
-\label{tab1}
+
+\end{center}
+\end{table}
+
+
+% benchmark FPS
+\begin{table}[htbp]
+\caption{\label{tab:experiment-result}  Experiment result}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}&\textbf{Parameter} \\
+\cline{1-3}
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}}&\textbf{Size} \\
+\hline
+C-CNN & 14.9 & 22.1 & 72509   \\
+\hline
+Ours & 12.2 & 21.9 & 73009 \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$ Parameter size in our implementation.}
+\end{tabular}
+
 \end{center}
 \end{table}
