@@ -8,59 +8,23 @@ Dilated CNN have been proven to conserved spatial context information \cite{li20
 % \begin{table}[htbp]
 % \caption{Experiment result}
 
-% \begin{center}
-% \begin{tabular}{|c|c|c|}
-% \hline
-% \textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}} \\
-% \hline
-% \textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}} \\
-% \hline
-% C-CNN & 14.9 & 22.1  \\
-% \hline
-% Ours & 12.2 & 21.9  \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-
-Table \ref{tab:experiment-result} show experiment result and trainable parameter of our proposed method comparing to C-CNN. The increase in parameter size due to learnable affine parameters in batch normalization only. 
-
-\begin{table}[htbp]
-\caption{\label{tab:experiment-result}  Experiment result}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}&\textbf{Parameter} \\
-\cline{1-3}
-\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}}&\textbf{Size} \\
-\hline
-C-CNN & 14.9 & 22.1 & 72509   \\
-\hline
-Ours & 12.2 & 21.9 & 73009 \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$ Parameter size in our implementation.}
-\end{tabular}
-
-\end{center}
-\end{table}
 
 
-% benchmark FPS
-\begin{table}[htbp]
-\caption{\label{tab:experiment-result}  Experiment result}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}&\textbf{Parameter} \\
-\cline{1-3}
-\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}}&\textbf{Size} \\
-\hline
-C-CNN & 14.9 & 22.1 & 72509   \\
-\hline
-Ours & 12.2 & 21.9 & 73009 \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$ Parameter size in our implementation.}
-\end{tabular}
 
-\end{center}
-\end{table}
+
+\subsection{Implementation detail}
+
+\subsubsection{Ground-truth generation} \hfill
+
+For ShanghaiTech Part B dataset, we apply Gaussian kernel, original proposed by Lempitsky, \cite{lempitsky2010learning} with $\sigma = 15$ and truncate Gaussian spread at 3 standard deviations. More specific, for each image $I_i$, we define ground truth density function as: 
+
+\begin{equation} \label{eq:densit-function}
+\forall p \in I_{i}, \quad F_{i}^{0}(p)=\sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) 
+\end{equation}
+
+Where: 
+
+
+
+
+
