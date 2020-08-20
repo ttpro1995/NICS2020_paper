@@ -33,7 +33,11 @@ We apply batch normalization \cite{ioffe2015batch} with trainable parameters on 
 % \begin{table}[htbp]
 % \caption{Experiment result}
 
-
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.4\textwidth]{Picture/proposed/tail13_fix2.png}}
+\caption{Our proposed network}
+\label{fig:dcnn}
+\end{figure}
 
 
 
@@ -61,23 +65,26 @@ C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
 
 
 
-\subsubsection{Training detail}
+\subsubsection{Training detail} \hfill
 
  Because density map estimation is a pixel-wise task, exposing the model to the same set of pixels can cause overfitting \cite{marsden2016fully}. To augment ShanghaiTech B dataset, we crop the image into 4 non-overlap patches, each patch we create a copy of its flip over. Each full image can generate 8 training patches. 
 
-We train our model on L1 and L2 loss function: 
+We train our model on loss function $L$ composite of Manhattan distance ( $L1$ loss ) and Euclidean distance ($L_2$ loss): 
 
-\begin{equation} \label{eq:count}  % TODO: L1
-C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
+\begin{equation}L_2(\Theta)=\frac{1}{N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|^{2}\end{equation}
+
+\begin{equation}L_1(\Theta)=\frac{1}{N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|\end{equation}
+
+\begin{equation}
+    L(\Theta) = \frac{1}{2}L_1(\Theta) + \frac{1}{2}L_2(\Theta)
 \end{equation}
 
-\begin{equation} \label{eq:count}  % TODO: L2 
-C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
-\end{equation}
+\begin{itemize}
+  \item $\Theta$ is set of model parameters
+  \item $Z\left(X_{i} ; \Theta\right)$ is predicted density map from image $I_i$
+  \item $Z_{i}^{G T}$ is ground truth density map generated from annotated head of image $I_i$
+\end{itemize}
 
-\begin{equation} \label{eq:count} % TODO: L1 + L2 
-C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
-\end{equation}
  
  We train the model end-to-end with batch size of 40 patches and AdamW optimizer \cite{loshchilov2017decoupled} with learning rate of 0.001 and weight-decay 0.1. The following source code \footnote{https://github.com/ttpro1995/crowd\_counting\_framework} and setting \footnote{train\_script/learnstuff/l1/adamw1\_bigtail13i\_t1\_shb.sh} can reproduce result in approximately 8 hours of training.
 
