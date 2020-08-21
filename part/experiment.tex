@@ -19,7 +19,7 @@ Table \ref{tab:experiment-result} show experiment result and trainable parameter
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}\\
+\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech B}}\\
 \hline
 \textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MSE}} \\
 \hline
@@ -61,14 +61,16 @@ Ours & 12.2 & 21.9  \\
 % TODO average time, parameter size 
 % we talk about resource consumption here
 
+We run benchmark our re-implementation C-CNN \cite{9053780} and our proposed DCCNN on predefined ShanghaiTech B test set, total 318 test images, on the same hardware. Models are run on inference mode on a batch size of 1. We count the number of trainable parameters and measure total running time in second. Benchmark results are summarized in Table \ref{tab:benchmark-result}. Running times are averaged from multiple runs of same setting. Unfortunately, we cannot reproduce C-CNN benchmark of original authors \cite{9053780} (104.16 FPS) due to hardware limitations. 
+
 \begin{table}[htbp]
 \caption{\label{tab:benchmark-result}  Benchmark}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech Part B}}&\textbf{Parameter} \\
+\textbf{}&\multicolumn{2}{|c|}{\textbf{ShanghaiTech B}}&\textbf{Parameter} \\
 \cline{1-3}
-\textbf{Model} & \textbf{\textit{ Average time (seconds) }}& \textbf{\textit{FPS}}&\textbf{Size} \\
+\textbf{Model} & \textbf{\textit{ Time (seconds) }}& \textbf{\textit{FPS}}&\textbf{Size} \\
 \hline
 C-CNN (authors) &  &  104.16 & 0.07M \\
 \hline
@@ -81,3 +83,9 @@ Ours &  7.15093 & 44.47 & 73009 \\
 
 \end{center}
 \end{table}
+
+Comparing to C-CNN \cite{9053780}, our DCCNN require more computing resource, however due to: 
+\begin{itemize}
+    \item Batch normalization: 500 trainable affine parameters, more computation
+    \item 2 layer of average pooling instead of max pooling: more computation 
+\end{itemize}

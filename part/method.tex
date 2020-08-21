@@ -22,7 +22,7 @@ However, there is still room for improvement, as C-CNN does not provide any mech
 
 Dilated CNN have been proven to conserved spatial context information \cite{li2018csrnet} and deliver sharper feature map. We hypothesis Dilated CNN can solve the problem of background noise at low cost. Dilated CNN also been widely use in back-end decoder in recent crowd counting model, such as CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, TEDNet \cite{jiang2019crowd}. Inspired by their success, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We replace the second and third max-pooling layer into average-pooling to prevent loss of head count in max function \cite{zhang2019crowd}. 
 
-We apply batch normalization \cite{ioffe2015batch} with trainable parameters on each layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, before ReLU activation \cite{agarap2018deep}. 
+We apply batch normalization \cite{ioffe2015batch} with trainable affine parameters on each CNN layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, before ReLU activation \cite{agarap2018deep}. 
 
 Fig. \ref{fig:dccnn} is the implementation of our proposed Dilated Compact Convolutional Neural Network (DCCNN).  We hypothesis that DCCNN becomes more robust to background noise, which yields better performance on medium and sparse crowd scenes. 
 % Comparing to C-CNN, our proposed model require slightly increase in computation cost and memory due to:
@@ -58,11 +58,13 @@ Where:
   \item $\mathbf{P}_{i}$ is set of annotated point of image $i$
 \end{itemize}
 
-Total people count in image can be acquired by integral (\ref{eq:densit-function}) over whole density map, as equation: 
+Total people count in image can be acquired by integral (\ref{eq:densit-function}) over whole density map,
 
-\begin{equation} \label{eq:count}
-C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
-\end{equation}
+% as equation: 
+
+% \begin{equation} \label{eq:count}
+% C(I_i) = \sum_{p \in I_{i}} F_{i}(p)
+% \end{equation}
 
 
 
