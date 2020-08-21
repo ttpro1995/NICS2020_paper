@@ -12,7 +12,9 @@ From the predicted density map, we acquired predicted count by integral the dens
 
 \subsection{ShanghaiTech B}
 
-Table \ref{tab:experiment-result} show experiment result and trainable parameter of our proposed method comparing to C-CNN. The increase in parameter size due to learnable affine parameters in batch normalization.  
+Table \ref{tab:experiment-result} show experiment result and trainable parameter of our proposed method comparing to C-CNN. 
+
+% The increase in parameter size due to learnable affine parameters in batch normalization.  
 
 \begin{table}[htbp]
 \caption{\label{tab:experiment-result}  Experiment result}
@@ -57,9 +59,6 @@ Ours & 12.2 & 21.9  \\
 % \end{table}
 
 \subsection{Benchmark}
-
-% TODO average time, parameter size 
-% we talk about resource consumption here
 
 We run benchmark our re-implementation C-CNN \cite{9053780} and our proposed DCCNN on predefined ShanghaiTech B test set, total 318 test images, on the same hardware. Models are run on inference mode on a batch size of 1. We count the number of trainable parameters and measure total running time in second. Benchmark results are summarized in Table \ref{tab:benchmark-result}. Running times are averaged from multiple runs of same setting. Unfortunately, we cannot reproduce C-CNN benchmark of original authors \cite{9053780} (104.16 FPS) due to hardware limitations. 
 
