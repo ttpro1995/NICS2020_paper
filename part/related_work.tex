@@ -35,9 +35,9 @@ map. Empirical experiments show that density result in the
 background zone is not always 0 when it should be. Moreover,
 background objects, such as tree leaves, have a pattern similar
 to a crowd scene, making it easier to have false positives. Sam et
-al. \cite{BLP:conf/aaai/SamB18} had clearly documented the effect of background noise in
+al. \cite{DBLPconfaaaiSamB18} had clearly documented the effect of background noise in
 their work. 
 
-Background noise challenges are tackle, both implicit and explicit approaches. In an explicit approach, authors build a multi-step system, which including a step to remove explicitly remove background from result or input data. Some notable works are: WSRHC \cite{10.1145/3287921.3287980} includes the human-classifier which remove image patches do not contain human; ADCrowdNet \cite{liu2019adcrowdnet} Attention Map Generator segments image into crowd and non-crowd. The implicit approach builds the model so that it is robust to background noise. The common strategies are incorporate contextual information by dilated CNN (CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, \cite{9023874}), combined shallow layers with deep layers (TDF-CNN \cite{DBLP:conf/aaai/SamB18}, TEDnet \cite{jiang2019crowd}).
+Background noise challenges are tackle, both implicit and explicit approaches. In an explicit approach, authors build a multi-step system, which including a step to remove explicitly remove background from result or input data. Some notable works are: WSRHC \cite{10.1145/3287921.3287980} includes the human-classifier which remove image patches do not contain human; ADCrowdNet \cite{liu2019adcrowdnet} Attention Map Generator segments image into crowd and non-crowd. The implicit approach builds the model so that it is robust to background noise. The common strategies are incorporate contextual information by dilated CNN (CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, \cite{9023874}), combined shallow layers with deep layers (TDF-CNN \cite{DBLPconfaaaiSamB18}, TEDnet \cite{jiang2019crowd}).
 
 
