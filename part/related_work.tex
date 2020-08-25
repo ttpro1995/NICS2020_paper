@@ -1,4 +1,4 @@
-\section{Related work}
+\section{Related work} \label{sec:related}
 \subsection{Traditional method}
 Originally, total people in the crowd were count by detection. The method in this group mostly using a sliding window with a classifier trained on low-level hand-craft features, such as HOG \cite{dalal2005histograms} and Haar \cite{lin2001estimation}, make attempt to detect all human in the scene. The total count is the number of successful detections.
 
@@ -26,6 +26,11 @@ However, MCNN fails short when scales vary in the same image. Switch-CNN \cite{s
 
 Another approach is inception-like architecture, inspired from Inception \cite{szegedy2015going}, in which each inception-module, called a multi-scale module, is a mini multi-column convolutional network. The whole network consists of multiple multi-scale modules stack on top of each other, resulting in more scale combinations. SANet \cite{cao2018scale}, MDNet \cite{wang2019multi}, TEDnet \cite{jiang2019crowd}, ADCrowdNet \cite{liu2019adcrowdnet} are notable works. 
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.4\textwidth]{Picture/problem/background_noise_shb.png}}
+\caption{The red box is background and should not contain human.}
+\label{fig:noise}
+\end{figure}
 
 Background noise is a challenge in which the background
 decreases the performing of count counting algorithm.
@@ -36,7 +41,7 @@ background zone is not always 0 when it should be. Moreover,
 background objects, such as tree leaves, have a pattern similar
 to a crowd scene, making it easier to have false positives. Sam et
 al. \cite{DBLPconfaaaiSamB18} had clearly documented the effect of background noise in
-their work. 
+their work. Fig \cite{fig:noise} is an example of C-CNN suffer from background noise
 
 Background noise challenges are tackle, both implicit and explicit approaches. In an explicit approach, authors build a multi-step system, which including a step to remove explicitly remove background from result or input data. Some notable works are: WSRHC \cite{10.1145/3287921.3287980} includes the human-classifier which remove image patches do not contain human; ADCrowdNet \cite{liu2019adcrowdnet} Attention Map Generator segments image into crowd and non-crowd. The implicit approach builds the model so that it is robust to background noise. The common strategies are incorporate contextual information by dilated CNN (CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, \cite{9023874}), combined shallow layers with deep layers (TDF-CNN \cite{DBLPconfaaaiSamB18}, TEDnet \cite{jiang2019crowd}).
 

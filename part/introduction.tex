@@ -1,12 +1,19 @@
 \section{Introduction}
 
-With the development of urbanization and mass surveillance, automated crowd scene understanding, with crowd counting as a sub-problem, become in-demand. Single-image crowd counting in computer vision is the process to automatically count the number of people in an image using a computer.  The topic of single-image crowd counting remain challenging.
+% With the development of urbanization and mass surveillance, automated crowd scene understanding, with crowd counting as a sub-problem, become in-demand. Single-image crowd counting in computer vision is the process to automatically count the number of people in an image using a computer.  The topic of single-image crowd counting remain challenging.
 
-Recent works on crowd counting focus on tackle two main challenges: Scale variation caused by perspective distortion and background noise. Despite state-of-the-art works robust to both the above challenges, their models are too complex and resource hungry \cite{liu2019context, jiang2019crowd, liu2019adcrowdnet, amirgholipour2020pdanet}. C-CNN \cite{9053780} was proposed as a lightweight approach. However, C-CNN does not cover all problems of crowd counting.
+% Recent works on crowd counting focus on tackle two main challenges: Scale variation caused by perspective distortion and background noise. Despite state-of-the-art works robust to both the above challenges, their models are too complex and resource hungry \cite{liu2019context, jiang2019crowd, liu2019adcrowdnet, amirgholipour2020pdanet}. C-CNN \cite{9053780} was proposed as a lightweight approach. However, C-CNN does not cover all problems of crowd counting.
 
-In this paper, we show that C-CNN performance can be improve significant without increase on model complexity. 
-
-
+% In this paper, we show that C-CNN performance can be improve significant without increase on model complexity. 
 
 
 
+
+With the development of urbanization and mass surveillance, automated crowd scene understanding, with crowd-counting as a sub-problem, becomes in-demand. Single-image crowd counting in computer vision is the process to automatically count the number of people in an image using a computer.  The topic of single-image crowd counting remains challenging.
+
+Recent works on crowd counting focus on tackle two main challenges: scale variation caused by perspective distortion and background noise. Despite the fact that state-of-the-art models robust to both the above challenges, their models are too complex and resource-hungry \cite{liu2019context, jiang2019crowd, liu2019adcrowdnet, amirgholipour2020pdanet}. C-CNN \cite{9053780} was proposed as a lightweight approach. However, C-CNN lacks a mechanism for background noise. 
+
+
+By surveying related work, we discover that background noise can be mended with low-cost dilated convolution and average pooling. Thus, we proposed the improvement of C-CNN \cite{9053780}, called DCCNN. We conduct experiments shows that DCCNN performance significantly improved on medium and sparsed scenes without increasing model complexity.
+
+The remaining paper structure is as follows. In section \ref{sec:related}, we survey related work and describe two common challenges in the crowd-counting topic. In section \ref{sec:method}, we analyze C-CNN and describe our proposed DCCNN. In section \ref{sec:experiment}, we report our implementation and the result of our experiment and benchmark. Section \ref{sec:conclusion} is the conclusion.
