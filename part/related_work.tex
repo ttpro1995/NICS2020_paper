@@ -11,12 +11,15 @@ While counting by regression avoids difficulty in detection problem, it does not
 %ideal: 2 problem 
 The trend quickly transitions from output a single count number to density estimation for the following reasons: 
 
-Location annotation is "free lunch" in manually labeling object counting tasks .
-A count density map carries more information than a single count number.
-More crowd counting benchmark dataset with location annotation ( UCF-CC-50 \cite{idrees2013multi}, ShanghaiTech \cite{zhang2016single}, UCF-QNRF \cite{idrees2018composition}, NWPU-Crowd \cite{gao2020nwpu}, JHU-CROWD++ \cite{sindagi2020jhucrowd}) 
-were publicly available and accessible on the internet recently.
 
-Recent works focus on solving two main challenges of density map estimation: Scale variance due to perspective distortion, background noise
+\begin{itemize}
+    \item Location annotation is "free lunch" in manually labeling object counting tasks \cite{lempitsky2010learning}.
+    \item A count density map carries more information than a single count number \cite{zhang2016single}.
+    \item More crowd counting benchmark dataset with location annotation (UCF-CC-50 \cite{idrees2013multi}, ShanghaiTech \cite{zhang2016single}, UCF-QNRF \cite{idrees2018composition}, NWPU-Crowd \cite{gao2020nwpu}, JHU-CROWD++ \cite{sindagi2020jhucrowd}) 
+were publicly available and accessible on the internet recently.
+\end{itemize}
+
+Recent works focus on solving two main challenges of density map estimation: Scale variance due to perspective distortion, background noise.
 
 \subsubsection{Scale variance due to perspective distortion} \hfill
 
