@@ -14,7 +14,7 @@
 Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. Fig.\ref{fig:ccnn} is C-CNN from original works \cite{9053780}. We call three branch convolution layer with different kernel size as the "head", and the rest as the tail. CNN module are remark as (kernel size)-(number of filter)-(dilated rate). 
 
 Despite light-weight, C-CNN \cite{9053780} can tackle the problem of scale variation with its "head", consist of 3 parallel CNN with different kernel size. The early feature fusion after first layer not only reduce model complexity but also avoid problem of redundancy in later layer of MCNN \cite{zhang2016single}, which have bean investigate by Li et al. \cite{li2018csrnet}. 
-However, there is still room for improvement, as C-CNN does not provide any mechanism to alleviate background noise.
+However, there is still room for improvement, as C-CNN \cite{9053780} does not provide any mechanism to alleviate background noise.
 
 % we going Dilated and average pooling
 \subsection{Dilated Compact Convolutional Neural Network (DCCNN)} 
@@ -25,7 +25,7 @@ However, there is still room for improvement, as C-CNN does not provide any mech
 \label{fig:cnn_vs_dilated}
 \end{figure}
 
-Dilated convolution with dilated rate n have space n-1 unit between the kernel points. Fig. \ref{fig:cnn_vs_dilated} illustrates dilated convolution with dilated rate 2 (bottom) with traditional convolution, whose dilated rate is 1. Dilated convolution can expand the receptive field of without increase kernel size.
+Dilated convolution with dilated rate n have space n-1 unit between the kernel points. Fig. \ref{fig:cnn_vs_dilated} illustrates dilated convolution with dilated rate 2 (bottom) with traditional convolution (top), whose dilated rate is 1. Dilated convolution can expand the receptive field of without increase kernel size.
 
 Dilated convolution have been proven to conserved spatial context information  and deliver sharper feature map \cite{li2018csrnet}. We hypothesis Dilated convolution can solve the problem of background noise at low cost. Dilated convolution also been widely use in back-end decoder in recent crowd counting model, such as CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, TEDNet \cite{jiang2019crowd}. Inspired by their success, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We replace the second and third max-pooling layer into average-pooling to prevent loss of head count in max function \cite{zhang2019crowd}. 
 
@@ -53,7 +53,7 @@ Fig. \ref{fig:dccnn} is the implementation of our proposed DCCNN.  We hypothesis
 
 \subsubsection{Ground-truth generation} \hfill
 
-For ShanghaiTech Part B dataset, we apply Gaussian kernel, original proposed by Lempitsky, \cite{lempitsky2010learning} with $\sigma = 15$ and truncate Gaussian spread at 3 standard deviations. Truncate Gaussian spread help us prevent noise in ground truth density maps, ensure that label at no-human zone is zero. For each image $I_i$, we define ground truth density function as: 
+For ShanghaiTech Part B dataset \cite{zhang2016single}, we apply Gaussian kernel, original proposed by Lempitsky, \cite{lempitsky2010learning} with $\sigma = 15$ and truncate Gaussian spread at 3 standard deviations. Truncate Gaussian spread help us prevent noise in ground truth density maps, ensure that label at no-human zone is zero. For each image $I_i$, we define ground truth density function as: 
 
 \begin{equation} \label{eq:densit-function}
 \forall p \in I_{i}, \quad F_{i}^{0}(p)=\sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) 
@@ -65,7 +65,7 @@ Where:
   \item $\mathbf{P}_{i}$ is set of annotated point of image $i$
 \end{itemize}
 
-Total people count in image can be acquired by integral (\ref{eq:densit-function}) over whole density map,
+Total people count in image can be acquired by integral \eqref{eq:densit-function}  over whole density map,
 
 % as equation: 
 
@@ -79,7 +79,7 @@ Total people count in image can be acquired by integral (\ref{eq:densit-function
 
  Because density map estimation is a pixel-wise task, exposing the model to the same set of pixels can cause overfitting \cite{marsden2016fully}. To augment ShanghaiTech B dataset, we crop the image into 4 non-overlap patches, each patch we create a copy of its flip over. Each full image can generate 8 training patches. 
 
-We train our model on loss function $L$ composite of Manhattan distance ( $L1$ loss ) and Euclidean distance ($L_2$ loss): 
+Inspired by \cite{zhang2019crowd}, we train our model on loss function $L$ composite of Manhattan distance ( $L_1$ loss ) and Euclidean distance ($L_2$ loss): 
 
 \begin{equation}L_2(\Theta)=\frac{1}{N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|^{2}\end{equation}
 
