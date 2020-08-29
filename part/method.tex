@@ -13,7 +13,7 @@
 
 Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. Fig.\ref{fig:ccnn} is C-CNN from original works \cite{9053780}. We call three branch convolution layer with different kernel size as the "head", and the rest as the tail. CNN module are remark as (kernel size)-(number of filter)-(dilated rate). 
 
-Despite light-weight, C-CNN can tackle the problem of scale variation with its "head", consist of 3 parallel CNN with different kernel size. The early feature fusion after first layer not only reduce model complexity but also avoid problem of redundancy in later layer of MCNN \cite{zhang2016single}, which have bean investigate by Li et al. \cite{li2018csrnet}. 
+Despite light-weight, C-CNN \cite{9053780} can tackle the problem of scale variation with its "head", consist of 3 parallel CNN with different kernel size. The early feature fusion after first layer not only reduce model complexity but also avoid problem of redundancy in later layer of MCNN \cite{zhang2016single}, which have bean investigate by Li et al. \cite{li2018csrnet}. 
 However, there is still room for improvement, as C-CNN does not provide any mechanism to alleviate background noise.
 
 % we going Dilated and average pooling
@@ -21,11 +21,11 @@ However, there is still room for improvement, as C-CNN does not provide any mech
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.4\textwidth]{Picture/example/cnn_vs_dilated_cnn.png}}
-\caption{Traditional convolution (top) and dilated convolution with dilated rate 2 (bottom)}
+\caption{Traditional convolution with dilated rate 1 (top) and dilated convolution with dilated rate 2 (bottom)}
 \label{fig:cnn_vs_dilated}
 \end{figure}
 
-Dilated convolution with dilated rate n have space n-1 unit between the kernel points. Fig. \ref{fig:cnn_vs_dilated} illustrates dilated convolution with dilated rate 2 (bottom) with traditional convolution, whose dilated rate is. Dilated convolution can expand the receptive field of without increase kernel size.
+Dilated convolution with dilated rate n have space n-1 unit between the kernel points. Fig. \ref{fig:cnn_vs_dilated} illustrates dilated convolution with dilated rate 2 (bottom) with traditional convolution, whose dilated rate is 1. Dilated convolution can expand the receptive field of without increase kernel size.
 
 Dilated convolution have been proven to conserved spatial context information  and deliver sharper feature map \cite{li2018csrnet}. We hypothesis Dilated convolution can solve the problem of background noise at low cost. Dilated convolution also been widely use in back-end decoder in recent crowd counting model, such as CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, TEDNet \cite{jiang2019crowd}. Inspired by their success, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We replace the second and third max-pooling layer into average-pooling to prevent loss of head count in max function \cite{zhang2019crowd}. 
 

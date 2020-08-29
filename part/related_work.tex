@@ -1,6 +1,6 @@
 \section{Related work} \label{sec:related}
 \subsection{Traditional method}
-Originally, total people in the crowd were count by detection. The method in this group mostly using a sliding window with a classifier trained on low-level hand-craft features, such as HOG \cite{dalal2005histograms} and Haar \cite{lin2001estimation}, make attempt to detect all human in the scene. The total count is the number of successful detections.
+Originally, total people in the crowd were count by detection. This group's method mostly uses a sliding window with a classifier trained on low-level hand-craft features, such as HOG \cite{dalal2005histograms}  and Haar \cite{lin2001estimation}, to detect all human in the scene. The total count is the number of successful detections.
 
 However, detection approaches become challenging when crowd density increases. Counting by regression was proposed to avoid the hard task of object detection. The approach output one single count number for each input image, without detecting every object. Davies et al \cite{davies1995crowd} trained a linear regression on low-level features such as foreground pixels, edges that output a single count number. Idress et al. \cite{idrees2013multi} combine multiple methods, including SVM with SIFT feature, HOG based head detection, Fourier analysis. Wang et al. \cite{wang2015deep} were the first to use the Convolution neural network (CNN) in crowd counting problems.
 
@@ -19,7 +19,7 @@ The trend quickly transitions from output a single count number to density estim
 were publicly available and accessible on the internet recently.
 \end{itemize}
 
-Recent works focus on solving two main challenges of density map estimation: Scale variance due to perspective distortion, background noise.
+Recent works on crowd counting focus on tackling two main challenges: scale variation caused by perspective distortion and background noise.
 
 \subsubsection{Scale variance due to perspective distortion} \hfill
 
