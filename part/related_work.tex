@@ -1,6 +1,6 @@
 \section{Related work} \label{sec:related}
 \subsection{Traditional method}
-Originally, total people in the crowd were count by detection. This group's method mostly uses a sliding window with a classifier trained on low-level hand-craft features, such as HOG \cite{dalal2005histograms}  and Haar \cite{lin2001estimation}, to detect all human in the scene. The total count is the number of successful detections.
+Originally, total people in the crowd were count by detection. This group's methods mostly use a sliding window with a classifier trained on low-level hand-craft features, such as HOG \cite{dalal2005histograms}  and Haar \cite{lin2001estimation}, to detect all human in the scene. The total count is the number of successful detections.
 
 However, detection approaches become challenging when crowd density increases. Counting by regression was proposed to avoid the hard task of object detection. The approach output one single count number for each input image, without detecting every object. Davies et al \cite{davies1995crowd} trained a linear regression on low-level features such as foreground pixels, edges that output a single count number. Idress et al. \cite{idrees2013multi} combine multiple methods, including SVM with SIFT feature, HOG based head detection, Fourier analysis. Wang et al. \cite{wang2015deep} were the first to use the Convolution neural network (CNN) in crowd counting problems.
 
@@ -57,7 +57,7 @@ background zone is not always 0 when it should be. Moreover,
 background objects, such as tree leaves, have a pattern similar
 to a crowd scene, making it easier to have false positives. Sam et
 al. \cite{DBLPconfaaaiSamB18} had clearly documented the effect of background noise in
-their work. Fig \ref{fig:noise} is an example of C-CNN \cite{9053780} suffer from background noise
+their work. Fig. \ref{fig:noise} is an example of C-CNN \cite{9053780} suffer from background noise
 
 Background noise challenges are tackle by both implicit and explicit approaches. In an explicit approach, authors build a multi-step system, which including a step to remove explicitly remove background from result or input data. Some notable works are: WSRHC \cite{10.1145/3287921.3287980} includes the human-classifier which removes image patches do not contain human; ADCrowdNet \cite{liu2019adcrowdnet} Attention Map Generator segments image into crowd and non-crowd. The implicit approach builds into the model so that it is robust to background noise. The common strategies are incorporating contextual information by dilated convolution (CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, SCC \cite{9023874}), combining shallow layers with deep layers (TDF-CNN \cite{DBLPconfaaaiSamB18}, TEDnet \cite{jiang2019crowd}).
 

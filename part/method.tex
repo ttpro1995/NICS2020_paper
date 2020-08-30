@@ -27,11 +27,11 @@ However, there is still room for improvement, as C-CNN \cite{9053780} does not p
 
 Dilated convolution with dilated rate n have space n-1 unit between the kernel points. Fig. \ref{fig:cnn_vs_dilated} illustrates dilated convolution with dilated rate 2 (bottom) with traditional convolution (top), whose dilated rate is 1. Dilated convolution can expand the receptive field of without increase kernel size.
 
-Dilated convolution have been proven to conserved spatial context information  and deliver sharper feature map \cite{li2018csrnet}. We hypothesis Dilated convolution can solve the problem of background noise at low cost. Dilated convolution also been widely use in back-end decoder in recent crowd counting model, such as CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, TEDNet \cite{jiang2019crowd}. Inspired by their success, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We replace the second and third max-pooling layer into average-pooling to prevent loss of head count in max function \cite{zhang2019crowd}. 
+Dilated convolution have been proven to conserved spatial context information  and deliver sharper feature map \cite{li2018csrnet}. We hypothesize Dilated convolution can solve the problem of background noise at low cost. Dilated convolution also been widely use in back-end decoder in recent crowd counting model, such as CSRNet \cite{li2018csrnet}, CAN \cite{liu2019context}, DMCNN \cite{zhang2019crowd}, TEDNet \cite{jiang2019crowd}. Inspired by their success, we replace layer all tradition CNN on second layer with Dilated CNN at dilated rate 2. We replace the second and third max-pooling layer into average-pooling to prevent loss of head count in max function \cite{zhang2019crowd}. 
 
 We apply batch normalization \cite{ioffe2015batch} with trainable affine parameters on each CNN layer, including first multi-scale layers. Follow authors work, we add batch normalization before the nonlinearity, in our case, before ReLU activation \cite{agarap2018deep}. 
 
-Fig. \ref{fig:dccnn} is the implementation of our proposed DCCNN.  We hypothesis that DCCNN becomes more robust to background noise, which yields better performance on medium and sparse crowd scenes. 
+Fig. \ref{fig:dccnn} is the implementation of our proposed DCCNN.  We hypothesize that DCCNN becomes more robust to background noise, which yields better performance on medium and sparse crowd scenes. 
 % Comparing to C-CNN, our proposed model require slightly increase in computation cost and memory due to:
 
 % \begin{itemize}
@@ -65,7 +65,7 @@ Where:
   \item $\mathbf{P}_{i}$ is set of annotated point of image $i$
 \end{itemize}
 
-Total people count in image can be acquired by integral \eqref{eq:densit-function}  over whole density map,
+Total people count in image can be acquired by integral \eqref{eq:densit-function}  over whole density map.
 
 % as equation: 
 
