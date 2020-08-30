@@ -11,7 +11,7 @@
 
 
 
-Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. Fig.\ref{fig:ccnn} is C-CNN from original works \cite{9053780}. We call three branch convolution layer with different kernel size as the "head", and the rest as the tail. CNN module are remark as (kernel size)-(number of filter)-(dilated rate). 
+Despite their performance, state-of-the-art models are complex. C-CNN is a bargain trade performance for efficiency. Fig. \ref{fig:ccnn} is C-CNN from original works \cite{9053780}. We call three branch convolution layer with different kernel size as the "head", and the rest as the tail. CNN module are remark as (kernel size)-(number of filter)-(dilated rate). 
 
 Despite light-weight, C-CNN \cite{9053780} can tackle the problem of scale variation with its "head", consist of 3 parallel CNN with different kernel size. The early feature fusion after first layer not only reduce model complexity but also avoid problem of redundancy in later layer of MCNN \cite{zhang2016single}, which have bean investigate by Li et al. \cite{li2018csrnet}. 
 However, there is still room for improvement, as C-CNN \cite{9053780} does not provide any mechanism to alleviate background noise.
