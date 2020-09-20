@@ -4,7 +4,7 @@
 
 % While we training and compute loss function for backpropagation on generated ground-truth density map,
 
-From the predicted density map, we acquired predicted count by integral the density map over the whole image (i.e., sum the predicted density map matrix). Then from the predicted count and annotated count, compute Mean Absolutately Error (MAE), Mean Square Error (MSE) 
+From the predicted density map, we acquired predicted count by integral the density map over the whole image (i.e., sum all pixel values in the predicted density map matrix). Then from the predicted count and annotated count, compute Mean Absolutately Error (MAE), Mean Square Error (MSE) 
 
 \begin{equation}M A E=\frac{1}{N} \sum_{i=1}^{N}\left|C_{i}^{e t}-C_{i}^{g t}\right|\end{equation}
 
@@ -104,4 +104,4 @@ Comparing to C-CNN \cite{9053780}, our DCCNN requires more computing resources d
     \item 2 layer of average pooling instead of max pooling: more computation. 
 \end{itemize}
 
-Despite the noticeable performance improvements, the additional resources required are insignificant.
+Despite the noticeable performance improvements of DCCNN, the additional resources required are negligible.

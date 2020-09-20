@@ -77,7 +77,7 @@ Total people count in image can be acquired by integral \eqref{eq:densit-functio
 
 \subsubsection{Training detail} \hfill
 
- Because density map estimation is a pixel-wise task, exposing the model to the same set of pixels can cause overfitting \cite{marsden2016fully}. To augment ShanghaiTech B dataset, we crop the image into 4 non-overlap patches, each patch we create a copy of its flip over. Each full image can generate 8 training patches. 
+  To augment ShanghaiTech B dataset, we crop the image into 4 non-overlap patches, each patch we create a copy of its flip over. We limited overlap patches because it might cause overfit \cite{marsden2016fully}. Each full image can generate 8 training patches. 
 
 Inspired by \cite{zhang2019crowd}, we train our model on loss function $L$ composite of Manhattan distance ( $L_1$ loss ) and Euclidean distance ($L_2$ loss): 
 
